@@ -61,4 +61,4 @@ EOF help quit
 $
 ```
 
-<p>All tests should also pass in non-interactive mode: <code>$  echo "python3 -m unittest discover tests" | bash</code> </p>
+<p>All tests should also pass in non-interactive mode: <code>$ echo "python3 -m unittest discover tests" | bash</code> </p>
