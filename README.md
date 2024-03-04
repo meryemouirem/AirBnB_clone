@@ -1,10 +1,10 @@
 # 0x00-AirBnB_clone
 
-<h3> Welcome to the AirBnB clone project </h3>
+<h1> Welcome to the AirBnB clone project </h1>
 
-<h2><em>First step: The command console to manage AirBnB objects</em></h2>
+<h3><em>First step: The command console to manage AirBnB objects</em></h3>
 
-`<ul>`
+<ul>
 
 <li>Create a parent class <code>BaseModel</code> (abstract?) to take care of initialization, serialization and deserialization</li>
 
@@ -17,9 +17,9 @@
 <li>Create all unittests to validate all our classes and storage engine
 </li>
 
-`</ul>`
+</ul>
 
-`<h3>`Execution`</h3>`
+<h3>Execution</h3>
 
 <p>Interactive mode:</p>
 
