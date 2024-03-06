@@ -2,7 +2,8 @@
 
 from models.base_model import BaseModel
 
-class state(BaseModel):
+
+class State(BaseModel):
     """subclass BaseModel"""
-  
-    name :str = ""
+
+    name: str = ""
