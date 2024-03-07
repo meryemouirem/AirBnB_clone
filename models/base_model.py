@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 from uuid import uuid4
 from datetime import datetime
-from models import storage
+import models
 
 """
 Parent Class to all other children classes
@@ -19,19 +19,20 @@ class BaseModel:
 
     def __init__(self, *args, **kwargs):
         """ initialize a BaseModel instance """
+        # %Y-%m-%dT%H:%M:%S.%f %Y-%m-%dT%H:%M:%S.%f
         if kwargs:
             for key in kwargs.keys():
                 if key == "created_at":
-                    self.created_at = datetime.strptime("%Y-%m-%dT%H:%M:%S.%f", kwargs["created_at"])
+                    self.created_at = datetime.strptime(kwargs["created_at"],"%Y-%m-%dT%H:%M:%S.%f")
                 elif key == "updated_at":
-                    self.updated_at = datetime.strptime("%Y-%m-%dT%H:%M:%S.%f", kwargs["updated_at"])
+                    self.updated_at = datetime.strptime(kwargs["updated_at"], "%Y-%m-%dT%H:%M:%S.%f")
                 elif "__class__" == key:
                     pass
         else:
             self.id = str(uuid4())
             self.created_at = datetime.now()
             self.updated_at = datetime.now()
-            storage.new(self)
+            models.storage.new(self)
 
     def __str__(self):
         """ String representation of BaseModel """
@@ -44,7 +45,7 @@ class BaseModel:
             update_at with the current date
          """
         self.updated_at = datetime.now()
-        storage.save()
+        models.storage.save()
 
     def to_dict(self):
         """ Returns a dictionary containing all keys/values
