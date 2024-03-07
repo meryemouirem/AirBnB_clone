@@ -21,9 +21,9 @@ class BaseModel:
         """ initialize a BaseModel instance """
         if kwargs:
             for key in kwargs.keys():
-                if "created_at" == key:
+                if key == "created_at":
                     self.created_at = datetime.strptime("%Y-%m-%dT%H:%M:%S.%f", kwargs["created_at"])
-                elif "updated_at" == key:
+                elif key == "updated_at":
                     self.updated_at = datetime.strptime("%Y-%m-%dT%H:%M:%S.%f", kwargs["updated_at"])
                 elif "__class__" == key:
                     pass
