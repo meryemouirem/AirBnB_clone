@@ -26,7 +26,6 @@ class BaseModelTestCase(unittest.TestCase):
         """ Clean up after each test """
         printed_output = captured_output.getvalue()
         sys.stdout = sys.__stdout__
-
     def test_basemodel_init(self):
         """ Test BaseModel initialization and attribute existence """
         new_instance = BaseModel()
@@ -79,7 +78,6 @@ class BaseModelTestCase(unittest.TestCase):
         self.assertIn(keyname, saved_data)
         """ check if the value found in json is correct"""
         self.assertEqual(saved_data[keyname], new_instance.to_dict())
-
     def test_base_model_initialization_from_dict(self):
         """ Test BaseModel initialization from dictionary """
 
@@ -93,7 +91,6 @@ class BaseModelTestCase(unittest.TestCase):
         self.assertEqual(new.name, "John")
         self.assertEqual(new.my_number, 89)
         self.assertEqual(new.to_dict(), new2.to_dict())
-
     def test_base_model_initialization_different_instances(self):
         """ Test initialization of different BaseModel instances """
         instance1 = BaseModel()
