@@ -45,6 +45,12 @@ class HBNBCommand(cmd.Cmd):
         else:
             print(obj.id)
 
+    def do_show(self, *arg):
+        """Show Class instance and it id"""
+        pass
+
+
+
 
 
 if __name__ == "__main__":
