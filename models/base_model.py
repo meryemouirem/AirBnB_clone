@@ -20,19 +20,20 @@ class BaseModel:
     def __init__(self, *args, **kwargs):
         """ initialize a BaseModel instance """
         # %Y-%m-%dT%H:%M:%S.%f %Y-%m-%dT%H:%M:%S.%f
-        if kwargs:
-            for key in kwargs.keys():
-                if key == "created_at":
-                    self.created_at = datetime.strptime(kwargs["created_at"],"%Y-%m-%dT%H:%M:%S.%f")
-                elif key == "updated_at":
-                    self.updated_at = datetime.strptime(kwargs["updated_at"], "%Y-%m-%dT%H:%M:%S.%f")
-                elif "__class__" == key:
-                    pass
-        else:
+        if not kwargs or len(kwargs) == 0:
             self.id = str(uuid4())
             self.created_at = datetime.now()
             self.updated_at = datetime.now()
-            models.storage.new(self)
+            models.storage.save(self)
+        else:
+            for key, value in kwargs.items():
+                if key == "__class__":
+                    continue
+                if key == "created_at" or key == "updated_at":
+                    iso_format = datetime.fromisoformat(value)
+                    setattr(self, key, iso_format)
+                else:
+                    setattr(self, key, value)
 
     def __str__(self):
         """ String representation of BaseModel """
