@@ -14,7 +14,7 @@ class TestAmenity(unittest.TestCase):
         self.new_amenity = Amenity()
 
     def test_attributes_existence(self):
-        """existince"""
+        """ tests attributes existence """
         attributes = ["id", "created_at", "updated_at", "name"]
         for attr in attributes:
             with self.subTest(attr=attr):
