@@ -8,6 +8,7 @@ import models
 from io import StringIO
 import sys
 from unittest.mock import patch
+
 captured_output = StringIO()
 sys.stdout = captured_output
 
@@ -26,6 +27,7 @@ class BaseModelTestCase(unittest.TestCase):
         """ Clean up after each test """
         printed_output = captured_output.getvalue()
         sys.stdout = sys.__stdout__
+
     def test_basemodel_init(self):
         """ Test BaseModel initialization and attribute existence """
         new_instance = BaseModel()
@@ -35,7 +37,7 @@ class BaseModelTestCase(unittest.TestCase):
         self.assertTrue(hasattr(new_instance, "save"))
         self.assertTrue(hasattr(new_instance, "to_dict"))
 
-        """existince"""
+        """existence"""
         self.assertTrue(hasattr(new_instance, "id"))
         self.assertTrue(hasattr(new_instance, "created_at"))
         self.assertTrue(hasattr(new_instance, "updated_at"))
@@ -46,7 +48,7 @@ class BaseModelTestCase(unittest.TestCase):
         self.assertIsInstance(new_instance.updated_at, datetime)
 
         """ check if save in storage """
-        keyname = "BaseModel."+new_instance.id
+        keyname = "BaseModel." + new_instance.id
         self.assertIn(keyname, models.storage.all())
         self.assertTrue(models.storage.all()[keyname] is new_instance)
 
@@ -71,13 +73,14 @@ class BaseModelTestCase(unittest.TestCase):
             mock_function.assert_called_once()
 
         """check if object is saved in json file"""
-        keyname = "BaseModel."+new_instance.id
+        keyname = "BaseModel." + new_instance.id
         with open(self.filepath, 'r') as file:
             saved_data = json.load(file)
         """ check if object exist by keyname """
         self.assertIn(keyname, saved_data)
         """ check if the value found in json is correct"""
         self.assertEqual(saved_data[keyname], new_instance.to_dict())
+
     def test_base_model_initialization_from_dict(self):
         """ Test BaseModel initialization from dictionary """
 
@@ -91,6 +94,7 @@ class BaseModelTestCase(unittest.TestCase):
         self.assertEqual(new.name, "John")
         self.assertEqual(new.my_number, 89)
         self.assertEqual(new.to_dict(), new2.to_dict())
+
     def test_base_model_initialization_different_instances(self):
         """ Test initialization of different BaseModel instances """
         instance1 = BaseModel()
@@ -103,7 +107,7 @@ class BaseModelTestCase(unittest.TestCase):
         instance = BaseModel()
 
         self.assertEqual(
-            str(instance1),  "[BaseModel] ({}) {}".format(instance1.id, instance1.__dict__))
+            str(instance1), "[BaseModel] ({}) {}".format(instance1.id, instance1.__dict__))
 
         old_time = instance1.updated_at
         instance1.save()
