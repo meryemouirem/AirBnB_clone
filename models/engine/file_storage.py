@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 import json
+from models.base_model import BaseModel
 
 """
 File storage of created instances
@@ -14,6 +15,7 @@ class FileStorage:
      """
     __file_path: str = "file.json"
     __objects: dict = {}
+    __classes = {"BaseModel": BaseModel}
 
     def all(self):
         """ Returns the dictionary objects """
@@ -45,7 +47,7 @@ class FileStorage:
             pass
         else:
             for key, value in obj_dict.items():
-                obj = value["__class__"](**value)
+                obj = FileStorage.__classes[value["__class__"]](**value)
                 self.__objects[key] = obj
 
 
