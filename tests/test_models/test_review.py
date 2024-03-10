@@ -9,8 +9,8 @@ class TestReview(unittest.TestCase):
     """ Test case for the Review class """
 
     attributes = ["id", "created_at", "updated_at", "place_id", "user_id", "text"]
-    attribute_types = {"id": str, "created_at": datetime, "updated_at": datetime, "place_id": str, "user_id": str, "text": str}
-
+    attribute_types = {"id": str, "created_at": datetime, "updated_at": datetime, "place_id": str, "user_id": str,
+                       "text": str}
 
     def test_review(self):
         """ Test existence of required attributes """
