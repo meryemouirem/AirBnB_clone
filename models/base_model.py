@@ -9,7 +9,7 @@ Parent Class to all other children classes
 
 
 class BaseModel:
-    """ Parent class for the entire project 
+    """ Parent class for the entire project
     Methods:
         __init__(self, *args, **kwargs)
         __str__(self)
@@ -23,9 +23,15 @@ class BaseModel:
         if kwargs:
             for key in kwargs.keys():
                 if key == "created_at":
-                    self.created_at = datetime.strptime(kwargs["created_at"],"%Y-%m-%dT%H:%M:%S.%f")
+                    self.created_at =\
+                        datetime.strptime(
+                            kwargs["created_at"],
+                            "%Y-%m-%dT%H:%M:%S.%f")
                 elif key == "updated_at":
-                    self.updated_at = datetime.strptime(kwargs["updated_at"], "%Y-%m-%dT%H:%M:%S.%f")
+                    self.updated_at =\
+                        datetime.strptime(
+                            kwargs["updated_at"],
+                            "%Y-%m-%dT%H:%M:%S.%f")
                 elif "__class__" == key:
                     pass
         else:

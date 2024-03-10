@@ -49,8 +49,3 @@ class FileStorage:
             for key, value in obj_dict.items():
                 obj = FileStorage.__classes[value["__class__"]](**value)
                 self.__objects[key] = obj
-
-
-
-
-
