@@ -1,11 +1,10 @@
 #!/usr/bin/python3
-from uuid import uuid4
-from datetime import datetime
-import models
-
 """
 Parent Class to all other children classes
 """
+from uuid import uuid4
+from datetime import datetime
+import models
 
 
 class BaseModel:
@@ -22,12 +21,12 @@ class BaseModel:
         if kwargs:
             for key in kwargs.keys():
                 if key == "created_at":
-                    self.created_at =\
+                    self.created_at = \
                         datetime.strptime(
                             kwargs["created_at"],
                             "%Y-%m-%dT%H:%M:%S.%f")
                 elif key == "updated_at":
-                    self.updated_at =\
+                    self.updated_at = \
                         datetime.strptime(
                             kwargs["updated_at"],
                             "%Y-%m-%dT%H:%M:%S.%f")

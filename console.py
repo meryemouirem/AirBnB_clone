@@ -1,11 +1,10 @@
 #!/usr/bin/python3
-import cmd
-from models.base_model import BaseModel
-from models import storage
-
 """
 The Command line interface of the entire application
 """
+import cmd
+from models.base_model import BaseModel
+from models import storage
 
 
 class HBNBCommand(cmd.Cmd):

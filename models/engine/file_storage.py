@@ -1,10 +1,9 @@
 #!/usr/bin/python3
-import json
-from models.base_model import BaseModel
-
 """
 File storage of created instances
 """
+import json
+from models.base_model import BaseModel
 
 
 class FileStorage:
