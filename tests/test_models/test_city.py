@@ -8,7 +8,7 @@ from datetime import datetime
 class TestCity(unittest.TestCase):
     """ class for city test"""
 
-     attributes = ["id", "created_at", "updated_at", "state_id", "name"]
+    attributes = ["id", "created_at", "updated_at", "state_id", "name"]
     attribute_types = {"id": str, "created_at": datetime, "updated_at": datetime, "state_id": str, "name": str}
 
     def test_attributes_existence(self):
