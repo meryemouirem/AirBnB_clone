@@ -1,9 +1,8 @@
 #!/usr/bin/python3
-from models.base_model import BaseModel
-
 """
 Place class
 """
+from models.base_model import BaseModel
 
 
 class Place(BaseModel):

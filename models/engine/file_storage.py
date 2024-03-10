@@ -1,18 +1,15 @@
 #!/usr/bin/python3
-import json
-from models.base_model import BaseModel
-
 """
 File storage of created instances
 """
+import json
+from models.base_model import BaseModel
 
 
 class FileStorage:
-    """
-     File storage class that serializes instances
+    """ File storage class that serializes instances
      to a JSON file, and deserializes JSON file to instances
-
-     """
+    """
     __file_path: str = "file.json"
     __objects: dict = {}
     __classes = {"BaseModel": BaseModel}
@@ -49,8 +46,3 @@ class FileStorage:
             for key, value in obj_dict.items():
                 obj = FileStorage.__classes[value["__class__"]](**value)
                 self.__objects[key] = obj
-
-
-
-
-

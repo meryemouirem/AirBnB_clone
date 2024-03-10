@@ -1,17 +1,15 @@
 #!/usr/bin/python3
-import cmd
-from models.base_model import BaseModel
-from models import storage
-
 """
 The Command line interface of the entire application
 """
+import cmd
+from models.base_model import BaseModel
+from models import storage
 
 
 class HBNBCommand(cmd.Cmd):
     """
     The command line interface of the application
-
     """
     prompt = "(hbnb) "
 
@@ -48,9 +46,6 @@ class HBNBCommand(cmd.Cmd):
     def do_show(self, *arg):
         """Show Class instance and it id"""
         pass
-
-
-
 
 
 if __name__ == "__main__":
