@@ -13,7 +13,7 @@ sys.stdout = captured_output
 
 
 class BaseModelTestCase(unittest.TestCase):
-        """Test cases for BaseModel class functionality """
+    """Test cases for BaseModel class functionality """
 
     def setUp(self):
         """ Set up test environment """
