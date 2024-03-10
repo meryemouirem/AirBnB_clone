@@ -19,7 +19,6 @@ class BaseModel:
 
     def __init__(self, *args, **kwargs):
         """ initialize a BaseModel instance """
-        # %Y-%m-%dT%H:%M:%S.%f %Y-%m-%dT%H:%M:%S.%f
         if kwargs:
             for key in kwargs.keys():
                 if key == "created_at":
@@ -49,7 +48,7 @@ class BaseModel:
     def save(self):
         """ public method that updates instance attribute
             update_at with the current date
-         """
+        """
         self.updated_at = datetime.now()
         models.storage.save()
 

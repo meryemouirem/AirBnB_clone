@@ -11,7 +11,6 @@ The Command line interface of the entire application
 class HBNBCommand(cmd.Cmd):
     """
     The command line interface of the application
-
     """
     prompt = "(hbnb) "
 
