@@ -10,7 +10,7 @@ File storage of created instances
 class FileStorage:
     """ File storage class that serializes instances
      to a JSON file, and deserializes JSON file to instances
-     """
+    """
     __file_path: str = "file.json"
     __objects: dict = {}
     __classes = {"BaseModel": BaseModel}
